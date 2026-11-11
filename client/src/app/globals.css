@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/*
+ * Soft light theme for comfortable daytime reading.
+ * Accents are deepened so text and buttons keep readable contrast on white.
+ */
+@theme {
+  --color-canvas: #f5f7f4; /* page background: soft warm-grey, not stark white */
+  --color-panel: #ffffff; /* cards */
+  --color-raised: #eef2ee; /* track backgrounds, chips */
+  --color-float: #e4ebe6;
+  --color-line: #e2e8e3; /* hairline borders */
+  --color-ink: #1d2b24; /* primary text */
+  --color-muted: #5f6f66; /* secondary text, still AA on white */
+
+  --color-primary: #0a7f5a; /* emerald: text, buttons, active states */
+  --color-primary-deep: #086a4c; /* hover */
+  --color-primary-ink: #ffffff; /* text on emerald */
+
+  --color-gold: #b45309; /* money, DRC tiers, pending (amber-700) */
+  --color-gold-deep: #92400e;
+  --color-cyan: #0e7490; /* weather, soil (cyan-700) */
+  --color-crimson: #dc2626; /* alerts only */
+
+  /* Google Sans only. Thai glyphs are not in Google Sans, so they fall back to the system Thai fonts. */
+  --font-sans: "Google Sans", -apple-system, "Segoe UI", "Leelawadee UI", Tahoma, system-ui, sans-serif;
+  /* Numbers use the same sans face (tabular-nums keeps columns aligned). */
+  --font-mono: var(--font-sans);
+
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-canvas);
+  }
+  body {
+    @apply bg-canvas text-ink;
+    font-family: var(--font-sans);
+  }
+  /* Thai body text needs line-height >= 1.6 */
+  p,
+  li,
+  label {
+    line-height: 1.6;
+  }
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+}
